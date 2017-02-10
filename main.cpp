@@ -2,18 +2,17 @@
 #include <string>
 using namespace std;
 
-string drehum(string);
+string umdrehen(string);
 bool vergleichen(string, string);
-bool checkchar(char);
 
-string drehum(string eingabe)
+string umdrehen(string eingabe)
 {
-	string umgedreht;
+	string a;
 	for (int i = eingabe.length() - 1; i != -1; i--)
 	{
-		umgedreht += eingabe.at(i);
+		a += eingabe.at(i);
 	}
-	return umgedreht;
+	return a;
 }
 
 
@@ -35,41 +34,18 @@ bool vergleichen(string v1, string v2)
 	return pruefe;
 }
 
-bool checkchar(char check)
-{
-	if (check < 'A' || ((check > 'Z') && (check < 'a')) || check > 'z')
-		return false;
-	else
-		return true;
-}
 
 int main()
 {
 	string eingabe, temp;
 	bool pruefechar = true;
 
-	for (int i = 0; i < eingabe.length(); i++)
-	{
-		if (checkchar(eingabe.at(i)) != false)
-		{
-			pruefechar = true;
-		}
-		else
-		{
-			pruefechar = false;
-			break;
-		}
-
-		if (pruefechar == true)
-			break;
-	}
 
 	cout << "Text: ";
 	getline(cin, eingabe);
 
 
-
-	temp = drehum(eingabe);
+	temp = umdrehen(eingabe);
 
 	if (vergleichen(eingabe, temp) == true)
 	{
